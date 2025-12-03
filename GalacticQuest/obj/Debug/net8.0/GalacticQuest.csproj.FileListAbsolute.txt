@@ -1,0 +1,15 @@
+C:\Users\Alexandra\Documents\GitHub\GalacticQuest_Alexa\GalacticQuest\bin\Debug\net8.0\GalacticQuest.exe
+C:\Users\Alexandra\Documents\GitHub\GalacticQuest_Alexa\GalacticQuest\bin\Debug\net8.0\GalacticQuest.deps.json
+C:\Users\Alexandra\Documents\GitHub\GalacticQuest_Alexa\GalacticQuest\bin\Debug\net8.0\GalacticQuest.runtimeconfig.json
+C:\Users\Alexandra\Documents\GitHub\GalacticQuest_Alexa\GalacticQuest\bin\Debug\net8.0\GalacticQuest.dll
+C:\Users\Alexandra\Documents\GitHub\GalacticQuest_Alexa\GalacticQuest\bin\Debug\net8.0\GalacticQuest.pdb
+C:\Users\Alexandra\Documents\GitHub\GalacticQuest_Alexa\GalacticQuest\obj\Debug\net8.0\GalacticQuest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Alexandra\Documents\GitHub\GalacticQuest_Alexa\GalacticQuest\obj\Debug\net8.0\GalacticQuest.AssemblyInfoInputs.cache
+C:\Users\Alexandra\Documents\GitHub\GalacticQuest_Alexa\GalacticQuest\obj\Debug\net8.0\GalacticQuest.AssemblyInfo.cs
+C:\Users\Alexandra\Documents\GitHub\GalacticQuest_Alexa\GalacticQuest\obj\Debug\net8.0\GalacticQuest.csproj.CoreCompileInputs.cache
+C:\Users\Alexandra\Documents\GitHub\GalacticQuest_Alexa\GalacticQuest\obj\Debug\net8.0\GalacticQuest.sourcelink.json
+C:\Users\Alexandra\Documents\GitHub\GalacticQuest_Alexa\GalacticQuest\obj\Debug\net8.0\GalacticQuest.dll
+C:\Users\Alexandra\Documents\GitHub\GalacticQuest_Alexa\GalacticQuest\obj\Debug\net8.0\refint\GalacticQuest.dll
+C:\Users\Alexandra\Documents\GitHub\GalacticQuest_Alexa\GalacticQuest\obj\Debug\net8.0\GalacticQuest.pdb
+C:\Users\Alexandra\Documents\GitHub\GalacticQuest_Alexa\GalacticQuest\obj\Debug\net8.0\GalacticQuest.genruntimeconfig.cache
+C:\Users\Alexandra\Documents\GitHub\GalacticQuest_Alexa\GalacticQuest\obj\Debug\net8.0\ref\GalacticQuest.dll
