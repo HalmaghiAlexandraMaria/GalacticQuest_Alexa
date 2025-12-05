@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GalacticQuest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e11da611e92d972f78e26ca4c23eac0442f5aa44")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b5e63c43766dea251337af8391b276fca83ef38d")]
 [assembly: System.Reflection.AssemblyProductAttribute("GalacticQuest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GalacticQuest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

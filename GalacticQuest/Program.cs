@@ -1,9 +1,16 @@
-﻿namespace GalacticQuest
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace GalacticQuest
 {
     internal class Program
     {
         static void Main(string[] args)
         {
+            Player player = new Player();
+            Player player2 = new Player();
+
             Console.WriteLine("Hello, Galactic Quest!");
 
             OpenMainMenu();
@@ -19,25 +26,35 @@
                 Console.WriteLine("Select your option and press Enter: \n 1.Travel \n 2.Journal \n 3.Exit \n");
                 int.TryParse(Console.ReadLine(), out int readOption);
 
-
-                switch (readOption)
+               
+                // punem switch-ul într-un try,
+                // iar în default aruncăm excepția care va fi prinsă mai jos
+                try
                 {
-                    case (int)GameOptions.Monsters:
-                        OpenTravelMenu();
-                        break;
+                    switch (readOption)
+                    {
+                        case (int)GameOptions.Monsters:
+                            OpenTravelMenu();
+                            break;
 
-                    case (int)GameOptions.Journal:
-                        OpenJournalMenu();
-                        break;
+                        case (int)GameOptions.Journal:
+                            OpenJournalMenu();
+                            break;
 
-                    case (int)GameOptions.Exit:
-                        isAppRunning = false;
-                        break;
+                        case (int)GameOptions.Exit:
+                            isAppRunning = false;
+                            break;
 
-                    default:
-                        Console.WriteLine("-_-' Invalid Option");
-                        break;
-
+                        default:
+                            //  pe default aruncăm excepția cerută de temă
+                            throw new Exception("Invalid main menu option");
+                    }
+                }
+                catch (Exception)
+                {
+                    // mesajul cerut 
+                    Console.WriteLine("There was an error");
+          
                 }
             }
         }
@@ -76,7 +93,6 @@
                 default:
                     Console.WriteLine("Invalid Option. Please try a valid option.");
                     break;
-
             }
         }
 
