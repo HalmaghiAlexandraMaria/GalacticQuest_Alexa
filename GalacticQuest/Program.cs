@@ -6,58 +6,12 @@ namespace GalacticQuest
 {
     internal class Program
     {
-        internal static Player currentPlayer = new Player(100, 10, 250); 
-
+        internal static Player currentPlayer = new Player(100, 10, 250);
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, Galactic Quest!");
-
-            //CreateAndDisplayPlayerStats();
-
             OpenMainMenu();
         }
-
-        internal static void CreateAndDisplayItems()
-        {
-            Console.Write("\n");
-            Console.WriteLine("Displaying Created Items:");
-
-            Random randomGenerator = new Random();
-            List<Item> items = new List<Item>()
-            {
-                new Excalibur("Excalibur", randomGenerator.Next(50, 200), randomGenerator.Next(100, 200)),
-                new Tessaiga ("Tessaiga", randomGenerator.Next(100, 300), randomGenerator.Next(50, 100)),
-            };
-
-            for (int index = 0; index < items.Count; ++index)
-            {
-                Console.WriteLine($"Item: {items[index].Name} | Attack: {items[index].Attack} | Resistance: {items[index].Resitance}");
-                Console.WriteLine("Item's Special Power: ");
-                items[index].SpecialPower();
-            }
-        }
-
-        //internal static void CreateAndDisplayPlayerStats()
-        //{
-        //    Console.Write("\n");
-
-        //    List<(string, int)> items = new List<(string, int)>() { ("Excalibur", 500), ("Tessaiga", 1000) };
-        //    Player player = new Player(50, 1, 10);
-        //    //Player player = new Player(50, 1, items);
-        //    //Player player = new Player(40, 2);
-        //    //Player player = new Player(30);
-        //    //Player player = new Player();
-
-        //    player.ShowProfile();
-
-        //    (string, int) newItem = ("Dragon Slayer", 1500);
-        //    player.AddItemToBackpack(newItem);
-
-        //    player.ShowProfile();
-
-        //    player.UpdateHp(-60);
-        //    Console.WriteLine($"After updating HP: {player.Hp}");
-        //}
 
         internal static void OpenMainMenu()
         {
@@ -91,7 +45,6 @@ namespace GalacticQuest
 
                         default:
                             throw new Exception("Invalid Option");
-
                     }
                 }
                 catch (Exception ex)
@@ -135,6 +88,35 @@ namespace GalacticQuest
             }
         }
 
+        internal static void OpenBackpackMenu()
+        {
+            Console.Write("\n");
+            Console.WriteLine("Displaying the Backpack menu\n");
+
+            Console.WriteLine("Select your option and press Enter: \n 1.Show current items in backpack.\n 2.Add a basic DoomFist to backpack\n 3.Back to Main Menu\n");
+
+            int.TryParse(Console.ReadLine(), out int userOption);
+
+            switch (userOption)
+            {
+                case 1:
+                    currentPlayer.ShowItemsInBackpack();
+                    break;
+
+                case 2:
+                    Item basicItem = new DoomFist("Basic doomfist", 100, 20);
+                    currentPlayer.AddItemToBackpack(basicItem);
+                    break;
+
+                case 3:
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid Option. Please try a valid option.");
+                    break;
+            }
+        }
+
         internal static void OpenJournalMenu()
         {
             Console.Write("\n");
@@ -149,7 +131,7 @@ namespace GalacticQuest
                     break;
 
                 case 2:
-                    CreateAndDisplayItems();
+                    Console.WriteLine("Selected Planets");
                     break;
 
                 case 3:
@@ -165,13 +147,13 @@ namespace GalacticQuest
             }
         }
 
-      internal static void CreateAndDisplayMonsters()
-      {
-         Console.Write("\n");
-         Console.WriteLine("Displaying Created Monsters:");
+        internal static void CreateAndDisplayMonsters()
+        {
+            Console.Write("\n");
+            Console.WriteLine("Displaying Created Monsters:");
 
-         Random randomGenerator = new Random();
-         List<Monster> monsters = new List<Monster>()
+            Random randomGenerator = new Random();
+            IList<Monster> monsters = new List<Monster>()
             {
                 new Glorbazorg("Glorbazorg", randomGenerator.Next(10, 100), randomGenerator.Next(10, 100)),
                 new Xenotutzi("Xenotutzi", randomGenerator.Next(10, 100), randomGenerator.Next(10, 100)),
@@ -179,24 +161,24 @@ namespace GalacticQuest
                 new Ignifax("Ignifax", randomGenerator.Next(10, 100), randomGenerator.Next(10, 100))
             };
 
-         ShowMonsters(monsters);
-      }
+            ShowMonsters(monsters);
+        }
 
-      internal static void ShowMonsters(List<Monster> monsters)
+        internal static void ShowMonsters(IList<Monster> monsters)
         {
             Console.Write("\n");
             Console.WriteLine("The monsters are : ");
 
-            for (int index = 0; index < monsters.Count; ++index)
+            foreach (Monster monster in monsters)
             {
-                Console.WriteLine(monsters[index].Name + " - " + monsters[index].Hp + " HP | " + monsters[index].Attack + " Attack");
+                Console.WriteLine(monster.Name + " - " + monster.Hp + " HP | " + monster.Attack + " Attack");
             }
             Console.Write("\n");
 
             ShowMonstersOptions(monsters);
         }
 
-        internal static void ShowMonstersOptions(List<Monster> monsters)
+        internal static void ShowMonstersOptions(IList<Monster> monsters)
         {
             Console.WriteLine("Select your option and press Enter: \n 1.Go Back \n 2.Filter Monsters By Name \n 3.Show Monsters Last Words\n");
 
@@ -220,36 +202,7 @@ namespace GalacticQuest
             }
         }
 
-         internal static void OpenBackpackMenu()
-         {
-            Console.Write("\n");
-            Console.WriteLine("Displaying the Backpack menu\n");
-
-            Console.WriteLine("Select your option and press Enter: \n 1.Show current items in backpack.\n 2.Add a basic DoomFist to backpack\n 3.Back to Main Menu\n");
-
-            int.TryParse(Console.ReadLine(), out int userOption);
-
-            switch (userOption)
-            {
-               case 1:
-                  currentPlayer.ShowItemsInBackpack();
-                  break;
-
-               case 2:
-                  Item basicItem = new DoomFist("Basic doomfist", 100, 20);
-                  currentPlayer.AddItemToBackpack(basicItem);
-                  break;
-
-               case 3:
-                  break;
-
-               default:
-                  Console.WriteLine("Invalid Option. Please try a valid option.");
-                  break;
-            }
-         }
-
-      internal static void FilterMonstersByName(List<Monster> monsters)
+        internal static void FilterMonstersByName(IList<Monster> monsters)
         {
             Console.WriteLine("Enter letters to filter monsters: ");
             string? userInput = Console.ReadLine();
@@ -260,14 +213,14 @@ namespace GalacticQuest
             if (!string.IsNullOrEmpty(userInput))
             {
                 string lowerCasedUserInput = userInput.ToLower();
-                for (int index = 0; index < monsters.Count; ++index)
+                foreach (Monster monster in monsters)
                 {
-                    string currentMonsterName = monsters[index].Name;
+                    string currentMonsterName = monster.Name;
                     string lowerCasedCurrentMonster = currentMonsterName.ToLower();
 
                     if (lowerCasedCurrentMonster.StartsWith(lowerCasedUserInput))
                     {
-                        int currentMonsterHp = monsters[index].Hp;
+                        int currentMonsterHp = monster.Hp;
                         filteredMonstersByName.Add(currentMonsterName, currentMonsterHp);
                     }
                 }
@@ -277,9 +230,9 @@ namespace GalacticQuest
                 Console.WriteLine("No input provided. Showing all monsters.");
                 Console.Write("\n");
 
-                for (int index = 0; index < monsters.Count; ++index)
+                foreach (Monster monster in monsters)
                 {
-                    Console.WriteLine(monsters[index].Name);
+                    Console.WriteLine(monster.Name);
                 }
             }
 
@@ -290,20 +243,20 @@ namespace GalacticQuest
             }
             else
             {
-                for (int index = 0; index < filteredMonstersByName.Count; ++index)
+                foreach (var filteredMonster in filteredMonstersByName)
                 {
-                    Console.WriteLine(filteredMonstersByName.Keys.ElementAt(index) + " - " + filteredMonstersByName.Values.ElementAt(index) + " HP");
+                    Console.WriteLine(filteredMonster.Key + " - " + filteredMonster.Value + " HP");
                 }
             }
         }
 
-        internal static void ShowMonstersLastWords(List<Monster> monsters)
+        internal static void ShowMonstersLastWords(IList<Monster> monsters)
         {
             Console.WriteLine("Monsters' Last Words:");
 
-            for (int index = 0; index < monsters.Count; ++index)
+            foreach (Monster monster in monsters)
             {
-                monsters[index].OnDeath();
+                monster.OnDeath();
             }
         }
     }

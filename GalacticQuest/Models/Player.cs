@@ -9,7 +9,7 @@ namespace GalacticQuest
         public int Hp { get; private set; } = 100;
         public int Attack { get; private set; } = 10;
 
-        public List<Item> Backpack { get; private set; } = new List<Item>();
+        public IList<Item> Backpack { get; private set; } = new List<Item>();
         public int Credits { get; private set; } = 0;
 
         public Player(int hp, int attack, int credits)
@@ -27,7 +27,7 @@ namespace GalacticQuest
 
         public Player(int hp)
         {
-           Hp = hp;
+            Hp = hp;
         }
 
         public Player()
@@ -55,31 +55,31 @@ namespace GalacticQuest
         /// <param name="item"> The item to add into the backpack </param>
         public void AddItemToBackpack(Item item)
         {
-           if(item is null)
-           {
-              return;
-           }
+            if (item is null)
+            {
+                return;
+            }
 
-           Backpack.Add(item);
+            Backpack.Add(item);
         }
-         
+
         /// <summary>
         /// Writes the current items in the backpack to the console
         /// </summary>
         public void ShowItemsInBackpack()
         {
-           Console.Write("\n");
-           if (Backpack.Count < 1)
-           {
-              Console.WriteLine("No items in the backpack currently");
-           }
+            Console.Write("\n");
+            if (Backpack.Count < 1)
+            {
+                Console.WriteLine("No items in the backpack currently");
+            }
 
-           foreach( Item item in Backpack)
-           {
-              Console.WriteLine($"Item -> Name: {item.Name} | Attack: {item.Attack} | Resistance: {item.Resitance}");
-           }
+            foreach (Item item in Backpack)
+            {
+                Console.WriteLine($"Item -> Name: {item.Name} | Attack: {item.Attack} | Resistance: {item.Resitance}");
+            }
         }
-        
+
         /// <summary>
         /// Removes an item from the backpack
         /// </summary>
@@ -89,10 +89,10 @@ namespace GalacticQuest
         {
             if (item is null || Backpack.Count < 1)
             {
-               return false;
+                return false;
             }
-            
-            return Backpack.Remove(item);         
+
+            return Backpack.Remove(item);
         }
 
         private void UpdateCredits(int credits)
@@ -117,9 +117,9 @@ namespace GalacticQuest
 
             Console.WriteLine($"Player Attack: {Attack}");
             int playerTotalAttack = Attack;
-            for (int index = 0; index < Backpack.Count; ++index)
+            foreach (Item backpack in Backpack)
             {
-                playerTotalAttack += Backpack[index].Attack;
+                playerTotalAttack += backpack.Attack;
             }
 
             Console.WriteLine($"Player Attack (Combined With Items Attack): {playerTotalAttack}");
